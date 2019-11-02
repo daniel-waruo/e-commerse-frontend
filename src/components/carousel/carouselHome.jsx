@@ -31,7 +31,7 @@ class CarouselHome extends BaseCarousel {
       }
     );
     return (
-      <MDBCol md="12" lg="9" className="mx-auto px-2">
+      <MDBCol md={"12"} lg={"9"}  className="mx-auto px-2">
         <MDBCarousel
           activeItem={1}
           length={carouselList.length}

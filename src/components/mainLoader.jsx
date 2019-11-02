@@ -8,7 +8,7 @@ class MainLoader extends React.Component {
     let title = this.props.title;
     return (
       <>
-        <div className="loader-bg white animated show" id="loader-background">
+        <div className={"loader-bg white animated show " + this.props.className} id="loader-background">
           <div className="loader">
             <div className="load_base load1">
               <div className="load_base out_loader"/>

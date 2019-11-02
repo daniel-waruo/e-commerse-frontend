@@ -30,21 +30,21 @@ class ProductCard extends React.Component {
             <strong><b>{product.name}</b></strong>
             <br/>
             {product.description}
-            <MDBBtn className="btn-outline-black rounded float-right" >ADD TO CART</MDBBtn>
+            <MDBBtn className="aqua-gradient  rounded float-right">ADD TO CART</MDBBtn>
           </MDBCardText>
           <h5>
-              <span className="float-left">
+            <span className="float-left">
                 {product.discount_price}
-                <del style={{color:"#747373"}} className="ml-2">{product.price}</del>
-              </span>
-            </h5>
+              <del className="ml-2 grey-text">{product.price}</del>
+            </span>
+          </h5>
         </MDBCardBody>
-        <div  className="position-absolute text-center h-50 w-100">
+        <div className="position-absolute text-center h-50 w-100">
           <MDBBtn
             style={{
               top: '40%'
             }}
-            color="black-outline"
+            className="deep-blue-gradient"
             onClick={this.productDetail}>
             MORE INFORMATION
           </MDBBtn>

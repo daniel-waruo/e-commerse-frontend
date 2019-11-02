@@ -4,7 +4,7 @@ import {
   MDBView,
   MDBCarouselItem,
   MDBCarouselInner,
-  MDBMask, MDBCol
+  MDBMask
 } from "mdbreact";
 import "../../assets/css/HomePage.css";
 import "../../assets/css/fullPage.css"
@@ -27,7 +27,6 @@ class CarouselProduct extends BaseCarousel {
       }
     );
     return (
-      <MDBCol md="12" lg="9" className="mx-auto px-2">
         <MDBCarousel
           activeItem={1}
           length={productList.length}
@@ -41,7 +40,6 @@ class CarouselProduct extends BaseCarousel {
             {productList}
           </MDBCarouselInner>
         </MDBCarousel>
-      </MDBCol>
     );
   };
 }

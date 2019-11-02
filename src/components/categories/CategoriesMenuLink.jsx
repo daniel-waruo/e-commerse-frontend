@@ -9,18 +9,19 @@ class CategoryMenuLinks extends React.Component {
     super(props);
     // set the initial state of collapse based on the current window size
     this.state = {
-      "collapseOpen": true  
+      collapseOpen: true
     }
   }
 
   toggleOpen = () => {
     this.setState(
-      {"collapseOpen":!this.state.collapseOpen}
+      {collapseOpen:!this.state.collapseOpen}
     );
-  }//toggle the state of the collapse depending on the size of the screen 
+  };//toggle the state of the collapse depending on the size of the screen
   
   handleResize = () => {
-    if (this.props.windowWidth <= 991){
+    if (this.props.windowWidth <= 977){
+      console.log(this.props.windowWidth);
       if (this.state.collapseOpen === true){
         this.setState(
           {"collapseOpen":false}
@@ -34,7 +35,7 @@ class CategoryMenuLinks extends React.Component {
         )
       }
     }
-  }// if the size of the window is less than md close the collapse else open the
+  };// if the size of the window is less than md close the collapse else open the
 
   render() {
     // get the category objects passed in the props
