@@ -1,5 +1,5 @@
 import React from 'react';
-import {MDBCollapse, MDBIcon, MDBInput} from "mdbreact";
+import {MDBCollapse, MDBIcon, MDBInput,MDBNavItem,MDBNavbarNav} from "mdbreact";
 import Axios from 'axios';
 import windowSize from 'react-window-size'
 import WindowSizeListener from 'react-window-size-listener'
@@ -62,7 +62,7 @@ class SearchForm extends React.Component {
     });
   };
   handleResize = () => {
-    if (this.props.windowWidth >= 977 && this.props.windowWidth <= 1000) {
+    if (this.props.windowWidth >= 977 && this.props.windowWidth <= 1100) {
       console.log(this.props.windowWidth);
       if (this.state.collapseOpen === true) {
         this.setState(
@@ -81,24 +81,27 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div className="my-2">
-        <form onSubmit={this.handleSubmit} className=" d-flex form-inline">
+      <MDBNavbarNav left>  
+        <MDBNavItem>
+          <form onSubmit={this.handleSubmit} className="nav-item form-inline">
           <MDBCollapse
             id={"searchFormCollapse"}
             isOpen={this.state.collapseOpen}
           >
             <WindowSizeListener onResize={this.handleResize}/>
             <MDBInput
+              containerClass="my-1"
               label="Search for Products"
               arialabel="Search for Products"
               onChange={this.handleChange}
               value={this.state.value}
             />
           </MDBCollapse>
-          <MDBIcon icon="search" className={"hoverable"}>
+          <MDBIcon icon="search" className={"hoverable"} onClick={this.toggleSearch}>
           </MDBIcon>
         </form>
-      </div>
+        </MDBNavItem>
+      </MDBNavbarNav>
     );
   }
 }

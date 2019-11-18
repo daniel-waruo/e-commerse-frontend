@@ -40,7 +40,7 @@ class NavbarHome extends Component {
     const {collapseID} = this.state;
 
     return (
-      <div>
+      <>
         <MDBNavbar color='white' light expand='lg' fixed='top' scrolling>
           <MDBNavbarBrand href='/' className='py-0 font-weight-bold'>
             <Logo style={{height: '2.5rem', width: '2.5rem'}}/>
@@ -52,7 +52,7 @@ class NavbarHome extends Component {
             id='mainNavbarCollapse'
             isOpen={this.state.collapseID}
             navbar>
-              <SearchForm/>
+            <SearchForm/>
             <MDBNavbarNav right>
               <MDBNavItem>
                 <MDBNavLink
@@ -92,7 +92,7 @@ class NavbarHome extends Component {
           </MDBCollapse>
         </MDBNavbar>
         {collapseID && overlay}
-        </div>
+        </>
     );
   }
 }
