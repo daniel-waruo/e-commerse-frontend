@@ -1,16 +1,15 @@
 import React from "react";
 import {MDBRow} from "mdbreact";
-import CarouselHome from "../components/carousel/carouselHome.jsx";
-import "../assets/css/HomePage.css";
-import "../assets/css/fullPage.css";
-import ProductsHome from "../components/products/homeProducts.jsx";
-import CategoryMenuLinks from "../components/categories/CategoriesMenuLink.jsx";
-import slide1 from "../assets/images/slide1.jpg";
-import slide2 from "../assets/images/slide2.jpg";
-import slide3 from "../assets/images/slide3.jpg";
-import BasePage from "./page.jsx"
+import CarouselHome from "../../components/carousel/carouselHome.jsx";
+import "./../../assets/css/HomePage.css";
+import "../../assets/css/fullPage.css";
+import ProductsHome from "../../components/products/homeProducts.jsx";
+import CategoryMenuLinks from "../../components/categories/CategoriesMenuLink.jsx";
+import slide1 from "../../assets/images/slide1.jpg";
+import slide2 from "../../assets/images/slide2.jpg";
+import slide3 from "../../assets/images/slide3.jpg";
 
-class HomePage extends BasePage {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,7 +100,7 @@ class HomePage extends BasePage {
     )//get data required for the page to load
   }
 
-  pageContent = () => {
+  render() {
     return (
       <div className="mx-3">
         <MDBRow>

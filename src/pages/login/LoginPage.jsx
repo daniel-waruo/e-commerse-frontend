@@ -1,15 +1,15 @@
 import React from "react";
-import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
-import BasePage from "./page";
+import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from 'mdbreact';
 
-class LoginPage extends BasePage {
-  pageContent = () => {
+class LoginPage extends React.Component {
+
+  render() {
     return (
       <MDBContainer>
-        <MDBRow className="justify-content-center">
-          <MDBCol md="6" className={"rounded"}>
+        <MDBRow className="justify-content-center align-items-center h-100">
+          <MDBCol md="6" className={"rounded my-auto"}>
             <form>
-              <p className="h5 text-center mb-4">Log in</p>
+              <p className="h1 text-center mb-4">Log in</p>
               <div className="grey-text">
                 <MDBInput
                   label="Type your email"
