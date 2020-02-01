@@ -61,9 +61,9 @@ class CategoryMenuLinks extends React.Component {
               color="white"
               onClick={this.toggleOpen}
               >
-               <i >Categories</i>
+               <span className={"h3"}>Categories</span>
                <br/>
-              <MDBIcon icon="arrow-down" size="lg"/>
+              <MDBIcon icon="plus-circle" size="lg"/>
             </MDBBtn>
             <MDBCollapse
               id="categoryMenuCollapse"

@@ -19,12 +19,12 @@ class CarouselHome extends BaseCarousel {
         return (
           <MDBCarouselItem itemId={index + 1} key={index}>
             <MDBView>
-              <div style={this.carouselImageStyle(carousel.image_url)} className={this.props.heightClass} />
+              <div style={this.carouselImageStyle(carousel.imageUrl)} className={this.props.heightClass} />
               <MDBMask overlay="black-light"/>
             </MDBView>
             <MDBCarouselCaption>
               <h3 className="h3-responsive">{carousel.title}</h3>
-              <p>{carousel.description}</p>
+              <p>{carousel.caption}</p>
             </MDBCarouselCaption>
           </MDBCarouselItem>
         )

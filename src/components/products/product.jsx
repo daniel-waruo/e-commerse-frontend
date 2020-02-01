@@ -21,10 +21,11 @@ class ProductCard extends React.Component {
 
 
   render() {
-    let product = this.props.product;
+    const product = this.props.product,
+    productImage = product.images[0].image ; 
     return (
       <MDBCard cascade color="transparent">
-        <MDBCardImage cascade className="img-fluid" src={product.image_url}/>
+        <MDBCardImage cascade className="img-fluid" src={productImage}/>
         <MDBCardBody cascade className="p-1" color="transparent">
           <MDBCardText>
             <strong><b>{product.name}</b></strong>
@@ -34,7 +35,7 @@ class ProductCard extends React.Component {
           </MDBCardText>
           <h5>
             <span className="float-left">
-                {product.discount_price}
+                {product.discountPrice}
               <del className="ml-2 grey-text">{product.price}</del>
             </span>
           </h5>
@@ -45,7 +46,7 @@ class ProductCard extends React.Component {
               top: '40%'
             }}
             className="deep-blue-gradient"
-            onClick={this.productDetail}>
+            href={"product/" + product.slug}>
             MORE INFORMATION
           </MDBBtn>
         </div>

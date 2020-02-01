@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/mainLoader.css'
+import '../../assets/css/mainLoader.css'
 
 class MainLoader extends React.Component {
 

@@ -30,8 +30,9 @@ class ProductsPage extends React.Component {
         <MDBContainer fluid>
           <SideNav toggleFunction={this.toggleSideNav} isOpen={this.state.sideNavOpen}>
             <div className={"h3 nav-link text-white text-center"}>Filters</div>
-            <div>
+            <div className={"overflow-auto"}>
               <RangeSlider title={"Price"} min={1} max={10} step={1}/>
+              <MDBBtn  style={{bottom:0}} className={"fixed-bottom"}>APPLY FILTERS</MDBBtn>
             </div>
           </SideNav>
         </MDBContainer>

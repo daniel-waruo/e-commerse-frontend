@@ -39,9 +39,9 @@ class RangeSlider extends Component {
     const domain = [this.props.min, this.props.max],
       defaultValues = [this.state.min, this.state.max];
     return (
-      <div className={"text-white p-4"}>
+      <div className={"text-white px-4"}>
         <p className={"py-1"}><span className={"h5 test-bold"}>{this.props.title}</span> | KSh {this.state.max} - Ksh {this.state.min}</p>
-        <div style={{height: 120, width: "100%"}}>
+        <div style={{height: 50, width: "100%"}}>
           <Slider
             mode={1}
             step={this.props.step}

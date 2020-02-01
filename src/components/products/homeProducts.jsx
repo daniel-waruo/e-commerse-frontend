@@ -11,7 +11,7 @@ class ProductsHome extends React.Component {
     let products = this.props.products;
     const productList = products.map((product,index) =>
       <MDBCol sm="6" md="4" lg="3" className="my-2" key={index} >
-        <ProductCard  product={product}/>
+        <ProductCard  product={product.product}/>
       </MDBCol>
     );//render a list of product components from the product objects
     return (
