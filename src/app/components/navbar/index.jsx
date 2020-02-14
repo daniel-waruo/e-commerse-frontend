@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ReactComponent as Logo} from '../../assets/logo.svg';
+import {ReactComponent as Logo} from './logo.svg';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -14,7 +14,7 @@ import {
 import SearchForm from "./search_form";
 import UserInfoDropdown from "./userInfoDropdown"
 
-class NavbarHome extends Component {
+class MainNavbar extends Component {
   state = {
     collapseID: ''
   };
@@ -38,7 +38,8 @@ class NavbarHome extends Component {
       />
     );
     const {collapseID} = this.state;
-
+    const cart = this.props.cart ; 
+    const cartNumber = (cart == null )? 0 : cart.products.length ;
     return (
       <>
         <MDBNavbar color='white' light expand='lg' fixed='top' scrolling>
@@ -81,12 +82,12 @@ class NavbarHome extends Component {
                   <sup style={{
                     padding:3,
                     textEmphasisStyle:"bold"
-                  }} className="rounded-circle">3</sup>
+                  }} className="rounded-circle">{cartNumber}</sup>
                   Cart
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>  
-                <UserInfoDropdown/>
+                <UserInfoDropdown logout={this.props.logout} user={this.props.user}/>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
@@ -98,4 +99,4 @@ class NavbarHome extends Component {
 }
 
 
-export default NavbarHome;
+export default MainNavbar;

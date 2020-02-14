@@ -1,8 +1,8 @@
 import React from 'react';
 import {MDBCollapse, MDBIcon, MDBInput,MDBNavItem,MDBNavbarNav} from "mdbreact";
-import Axios from 'axios';
 import windowSize from 'react-window-size'
 import WindowSizeListener from 'react-window-size-listener'
+
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -24,36 +24,7 @@ class SearchForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    Axios.create({
-      baseURL: "http://api.commerce.com"
-    }).get('/')
-      .then(
-        function (response) {
-          console.log(response)
-        })
-      .then(
-        function (data) {
-          console.log(data)
-        })
-      .catch(
-        function (error) {
-          console.log(error)
-        });
-    Axios.create({
-      baseURL: "http://api.commerce.com"
-    }).post('/')
-      .then(
-        function (response) {
-          console.log(response)
-        })
-      .then(
-        function (data) {
-          console.log(data)
-        })
-      .catch(
-        function (error) {
-          console.log(error)
-        })
+        
   }
 
   toggleSearch = () => {

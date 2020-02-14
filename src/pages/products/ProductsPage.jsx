@@ -1,8 +1,12 @@
 import React from 'react'
 import {MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow} from 'mdbreact'
-import SideNav from "../../components/sidenav/SideNav.jsx"
-import RangeSlider from "../../components/rangeSlider/rangeSlider"
 import './products.css'
+
+import Products from "../../components/products/products.jsx"
+import RangeSlider from "../../components/rangeSlider/rangeSlider"
+import SideNav from "../../components/sidenav/SideNav.jsx"
+import {PRODUCTS_QUERY} from './queries'
+
 
 class ProductsPage extends React.Component {
   constructor(props) {
@@ -22,7 +26,6 @@ class ProductsPage extends React.Component {
     const divStyle = {
       marginLeft: (this.state.sideNavOpen) ? 250 : 0,
       transition: "margin-left .5s",
-      paddingLeft: 16
     };
 
     return (
@@ -36,7 +39,8 @@ class ProductsPage extends React.Component {
             </div>
           </SideNav>
         </MDBContainer>
-        <MDBContainer style={divStyle} className={"sidenav-main"}>
+        <div style={divStyle} className={"sidenav-main"} >
+        <MDBContainer  >
           <h1 className={"text-center h-100"}>Products</h1>
           <MDBRow center>
             <MDBCol size={"12"} md={"9"}>
@@ -61,7 +65,10 @@ class ProductsPage extends React.Component {
               </MDBBtn>
             </MDBCol>
           </MDBRow>
+
+          <Products query={PRODUCTS_QUERY}  />
         </MDBContainer>
+      </div>
       </>
     )
   }

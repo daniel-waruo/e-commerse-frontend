@@ -12,8 +12,7 @@ class SideNav extends React.Component {
     const classes = (this.props.isOpen) ? "sidenav-open" : "";
     return (
       <div className={"sidenav " + classes}>
-        <span className="closebtn" style={{color: "white"}}
-           onClick={this.props.toggleFunction}>&times;</span>
+        <span className="closebtn" style={{color: "white",cursor:'pointer'}} onClick={this.props.toggleFunction}>&times;</span>
         {this.props.children}
       </div>
 

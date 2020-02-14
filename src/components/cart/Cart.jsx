@@ -1,8 +1,7 @@
 import React from 'react'
-import {MDBContainer} from "mdbreact";
 
 class CartItem extends React.Component {
-  
+
   render() {
     return <p>CART ITEM</p>
   }
@@ -10,17 +9,18 @@ class CartItem extends React.Component {
 
 class Cart extends React.Component {
 
-  defaultProps = {
-    products:[
+  static defaultProps = {
+    products: [
       {
-        id:"product pk",
-        name:"Product Name",
-        picture:"link to picture",
-        price:"price of products",
-        number:"number of products in cart"
+        id: "product pk",
+        name: "Product Name",
+        picture: "link to picture",
+        price: "price of products",
+        number: "number of products in cart"
       }
     ]
-  }
+  };
+
   render() {
     const products = this.props.products
     return (

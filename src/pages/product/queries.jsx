@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost';
 
 export const PRODUCT_QUERIES = gql`
-query {
-  allProducts(slug : "fish",first:1) {
+query Product( $productSlug: String! ){
+  allProducts(slug : $productSlug ,first:1) {
     edges {
       node {
         id

@@ -1,35 +1,59 @@
 import React from "react";
-import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from 'mdbreact';
+import SpinnerLoader from "../../components/loaders/spinnerLoader";
+import {Redirect} from 'react-router-dom';
+
+import {graphql} from 'react-apollo';
+import compose from 'lodash.flowright';
+import RegisterForm from './components/registerForm';
+import {register,registerErrors} from './queries'
+
 
 class RegisterPage extends React.Component {
 
-  render() {
-    return (
-      <MDBContainer>
-        <MDBRow className="justify-content-center my-auto">
-          <MDBCol md="6" className={"rounded my-auto"}>
-            <form>
-              <h1 className="h1 text-center mb-4">Register</h1>
-              <div className="grey-text">
-                <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong"
-                          success="right"/>
+  constructor(props){
+    super(props);
+    this.state = {
+      email:'',
+      username:'',
+      password1:'',
+      password2:'',
+      success:false
+    }
+  }
 
-                <MDBInput label="Type your First Name" icon="user" group type="email" validate error="wrong"
-                          success="right"/>
-                <MDBInput label="Type your Last Name" icon="user" group type="email" validate error="wrong"
-                          success="right"/>
-                <MDBInput label="Type your password" icon="lock" group type="password" validate/>
-                <MDBInput label="Confirm Password" icon="lock" group type="password" validate/>
-              </div>
-              <div className="text-center">
-                <MDBBtn>Register</MDBBtn>
-              </div>
-            </form>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+  register = e =>{
+    // event prevent default
+    e.preventDefault();
+    this.props.register({variables:this.state}).then(
+      success =>{
+        if (success){
+          this.setState({success:success});
+        }
+      }
     );
+  }
+  onChange = object => {
+    this.setState(object);
+  }
+  render() {
+    // get loginErrors and the user from the props
+    const {data:{registerErrors,user},loading} = this.props ;
+    if (loading) return <SpinnerLoader/>;
+      
+    if (this.state.success) {
+      return <Redirect to={"/login"} />
+    }
+    if (user) {
+      return <Redirect to={"/"} />
+    }
+    return <RegisterForm onChange={this.onChange} register={this.register} registerErrors={registerErrors} />
   }
 }
 
-export default RegisterPage;
+
+const withApollo = compose(
+  graphql(registerErrors),
+  graphql(register,{name:'register'})
+)
+
+export default withApollo(RegisterPage);
